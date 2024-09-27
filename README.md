@@ -42,3 +42,17 @@ To compile this program, use:
 # This command generates an executable named cd.
 gcc -o cd main.c
 ```
+
+## Usage
+
+The compiled program can be used as follows:
+
+```bash
+./cd [directory]
+```
+
+Options:
+
+- `[directory]`: The directory to change to. If omitted, the program changes to the home directory.
+
+- `-`: Switches to the previous directory, stored in the OLDPWD environment variable.
