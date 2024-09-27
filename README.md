@@ -56,3 +56,31 @@ Options:
 - `[directory]`: The directory to change to. If omitted, the program changes to the home directory.
 
 - `-`: Switches to the previous directory, stored in the OLDPWD environment variable.
+
+## Examples
+
+Change to `$HOME` directory:
+
+If no directory is specified, the program changes to the user's home directory:
+
+```bash
+./cd
+```
+
+If a directory is provided, the program changes current folder to the given directory:
+
+```bash
+./cd /path/to/directory
+```
+
+If the `-` option is provided, the program switches to the last working directory stored in `$OLDPWD`:
+
+```bash
+./cd -
+```
+
+If too many arguments are passed, the program prints a usage message:
+
+```bash
+./cd dir1 dir2
+```
