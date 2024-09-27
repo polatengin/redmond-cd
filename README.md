@@ -33,3 +33,12 @@ If a regular directory is provided, it changes to that directory using `chdir()`
 ### More than two arguments (`argc > 2`)
 
 It prints a usage error message.
+
+## Compilation
+
+To compile this program, use:
+
+```bash
+# This command generates an executable named cd.
+gcc -o cd main.c
+```
