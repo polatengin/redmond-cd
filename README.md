@@ -84,3 +84,27 @@ If too many arguments are passed, the program prints a usage message:
 ```bash
 ./cd dir1 dir2
 ```
+
+## Important Note
+
+To achieve the actual `cd` behavior, you need to use the built-in `cd` command in your shell, not a separate program.
+
+> Only the `shell` process itself can change its working directory.
+
+When you run a `C` program, it executes in a _child process_.
+
+Changing the directory in this _child process_ won't affect the parent `shell` process.
+
+> `shell` process itself needs to change the current directory.
+
+You can use this _C_ program to understand how `chdir()` works, but it can't replace the `shell`'s `cd` command directly.
+
+The correct way to achieve this in a `shell` (like `bash`, `zsh`, etc.) is to create a _shell built-in_.
+
+Source code for `cd` command (_shell built-in_) in `bash` can be found in <https://github.com/bminor/bash/blob/master/builtins/cd.def>
+
+### Explanation
+
+_C Program as a standalone_: If you create the `cd` command as a standalone _C_ program, it will only change the directory in its own process, and once it exits, the `shell` will remain in its original directory. The `shell` needs to change its directory, and only the `shell` process can do that.
+
+_Shell Built-in_: The `cd` command is implemented as a _shell built-in_. It directly affects the `shell` process, so when the `shell` executes it, the _current working directory_ of the `shell` itself is changed.
